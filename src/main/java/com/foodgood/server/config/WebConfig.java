@@ -16,7 +16,6 @@ import java.util.List;
 @EnableWebMvc
 @ComponentScan("com.foodgood.server")
 public class WebConfig extends WebMvcConfigurerAdapter {
-
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();

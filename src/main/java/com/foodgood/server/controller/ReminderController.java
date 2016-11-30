@@ -1,7 +1,7 @@
 package com.foodgood.server.controller;
 
-import com.foodgood.server.entity.Remind;
-import com.foodgood.server.service.ReminderService;
+import com.foodgood.server.entity.userRestaurant;
+import com.foodgood.server.service.UserRestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,27 +11,27 @@ import java.util.List;
 public class ReminderController {
 
     @Autowired
-    private ReminderService service;
+    private UserRestaurantService service;
 
-    @RequestMapping(value = "/reminders", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
-    public List<Remind> getAllReminders() {
+    public List<userRestaurant> getAllReminders() {
         return service.getAll();
     }
 
-    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Remind getReminder(@PathVariable("id") long remindID) {
+    public userRestaurant getUserRestaurant(@PathVariable("id") long remindID) {
         return service.getByID(remindID);
     }
 
-    @RequestMapping(value = "/reminders", method = RequestMethod.POST)
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
     @ResponseBody
-    public Remind saveRemider(@RequestBody Remind remind) {
-        return service.save(remind);
+    public userRestaurant saveUserRestaurant(@RequestBody userRestaurant userRestaurant) {
+        return service.save(userRestaurant);
     }
 
-    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable long id) {
         service.remove(id);
