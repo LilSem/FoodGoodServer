@@ -1,34 +1,34 @@
 package com.foodgood.server.controller;
 
-import com.foodgood.server.entity.userRestaurant;
-import com.foodgood.server.service.UserRestaurantService;
+import com.foodgood.server.entity.User;
+import com.foodgood.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ReminderController {
+public class UserController {
 
     @Autowired
-    private UserRestaurantService service;
+    private UserService service;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
-    public List<userRestaurant> getAllReminders() {
+    public List<User> getAllUsers() {
         return service.getAll();
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public userRestaurant getUserRestaurant(@PathVariable("id") long remindID) {
-        return service.getByID(remindID);
+    public User getUserRestaurant(@PathVariable("id") long userID) {
+        return service.getByID(userID);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     @ResponseBody
-    public userRestaurant saveUserRestaurant(@RequestBody userRestaurant userRestaurant) {
-        return service.save(userRestaurant);
+    public User saveUserRestaurant(@RequestBody User user) {
+        return service.save(user);
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)

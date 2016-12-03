@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "user_restaurant")
-public class userRestaurant {
+public class User {
 
     @Id
     @GeneratedValue(generator = "increment")
